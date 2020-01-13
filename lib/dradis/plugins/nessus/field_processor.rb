@@ -33,10 +33,20 @@ module Dradis
             else
               output
             end
+            
+            # Check length of output
+            if field == 'evidence.plugin_output' && output.length > 60000
+              output = output.truncate(60000)
+            else
+              output
           end
         end
 
         private
+        def truncate(string, max)
+          string.length > max ? "#{string[0...max]}..." : string
+        end
+        
         def format_bullet_point_lists(input)
           input.split("\n").map do |paragraph|
             if paragraph =~ /(.*)\s+:\s*$/m
