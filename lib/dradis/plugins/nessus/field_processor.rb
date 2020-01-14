@@ -35,8 +35,8 @@ module Dradis
             end
             
             # Check length of output
-            if field == 'evidence.plugin_output' && output.length > 60000
-              output = output.truncate(60000)
+            if output.length > 30000
+              output = output.truncate(30000)
             else
               output
             end
