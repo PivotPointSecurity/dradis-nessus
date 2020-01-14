@@ -39,6 +39,7 @@ module Dradis
               output = output.truncate(60000)
             else
               output
+            end
           end
         end
 
